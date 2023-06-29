@@ -7,7 +7,10 @@ const rs = fs.createReadStream(path.join(__dirname, 'writingfile', 'diary.txt'),
 //create the file.
 const ws = fs.createWriteStream(path.join(__dirname, 'writingfile', 'new-diary.txt'));
 
-rs.on('data', (chunkData)=>{
-    ws.write(chunkData);
-    console.log(chunkData.toString())
-})
+// listener
+// rs.on('data', (chunkData)=>{
+//     ws.write(chunkData);
+//     console.log(chunkData.toString())
+// })
+
+rs.pipe(ws);
